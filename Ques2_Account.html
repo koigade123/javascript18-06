@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Account</title>
+		<script>
+			class Account {
+				constructor(accountid, name, balance) {
+					this.accountid = accountid;
+					this.name = name;
+					this.balance = balance;
+				}
+			};
+			
+			Account.prototype.getAccountId = function() {
+				return this.accountid;
+			}
+						
+			Account.prototype.getName = function() {
+				return this.name;
+			}
+			
+			Account.prototype.getBalance = function() {
+				return this.balance;
+			}
+			
+			Account.prototype.setAccountId = function(id) {
+				this.id = id;
+			}
+			
+			Account.prototype.setName = function(name) {
+				this.name = name;
+			}
+			
+			Account.prototype.setBalance = function(balance) {
+				this.balance = balance;
+			}
+			
+			function save() {
+				//alert("hello i am saving..");
+				var accountId = document.getElementById("accountid").value;
+				
+				var name = document.getElementById("name").value;
+				var balance = document.getElementById("balance").value;
+				
+				//console.log(accountId + ", " + name + ", " + balance);
+				
+				var acct = new Account(accountId, name, balance);
+				
+				//console.log(acct.getAccountId() + "," + acct.getName() 
+					//+ ", " + acct.getBalance());
+					
+				var data = acct.getAccountId() + ", " + acct.getName() 
+					+ ", " + acct.getBalance();
+					
+				document.getElementById("result").innerText = data;
+			}
+		
+
+		</script>
+	</head>
+	<body>
+		<form>
+			<fieldset>
+				<legend>Account</legend>
+				<table>
+					<tr>
+						<td>Account Id</td>
+						<td>
+							<input 
+								type="text" 
+								name="accountid"
+								id="accountid">
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Name</td>
+						<td>
+							<input 
+								type="text" 
+								name="name"
+								id="name">
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Balance</td>
+						<td>
+							<input 
+								type="number" 
+								name="balance"
+								id="balance">
+						</td>
+					</tr>
+					
+					<tr>
+						<td>
+							<input 
+								type="button" 
+								value="Save"
+								onclick="save();"
+								>
+						</td>
+						<td>
+							<input type="reset" value="Clear">
+						</td>
+					</tr>
+				</table>
+				<br/>
+				<span id="result" />
+			</fieldset>
+		</form>
+	</body>
+</html>
