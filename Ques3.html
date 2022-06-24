@@ -1,0 +1,143 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+      <meta charset="UTF-8">
+	  <title>Class Customer</title>
+	  <script>
+			class Customer 
+			{
+				constructor(firstname, lastname, city, state, comments) 
+				{
+					this.firstname = firstname;
+					this.lastname = lastname;
+					this.city = city;
+					this.state = state;
+					this.comments = comments;
+				}
+			};
+			
+			Customer.prototype.getFirstname = function() 
+			{
+				return this.firstname;
+			}
+						
+			Customer.prototype.getLastname = function() 
+			{
+				return this.lastname;
+			}
+			
+			Customer.prototype.getCity = function() {
+				return this.city;
+			}
+			
+			Customer.prototype.getState = function() {
+				return this.state;
+			}
+			
+			Customer.prototype.getComments = function() {
+				return this.comments;
+			}
+			
+			Customer.prototype.setfirstname = function(firstname) {
+				this.firstname = firstname;
+			}
+			
+			Customer.prototype.setlastname = function(lastname) {
+				this.lastname = lastname;
+			}
+			Customer.prototype.setcity = function(city) {
+				this.city = city;
+			}
+			
+			Customer.prototype.setstate = function(state) {
+				this.state = state;
+			}
+			
+			Customer.prototype.setcomments = function(comments) {
+				this.comments = comments;
+			}
+			
+			
+		    function save(){
+			      var firstname = document.getElementById("firstname").value;
+				  var lastname = document.getElementById("lastname").value;
+				  var city = document.getElementById("city").value;
+				  var state = document.getElementById("state").value;
+				  var comments = document.getElementById("comments").value;
+				  
+				  var cust = new Customer(firstname,lastname,city,state,comments);
+				  
+				  var data = cust.getfirstname() + "," + cust.getlastname() + "," + cust.getcity ()+ ","
+				             + cust.getstate() + "," + cust.getcomments();
+							 
+				  document.getElementById("result").innerText = data;
+				   
+			}
+		</script>
+
+  </head>
+  <body>
+       <table>
+					<tr>
+						<td>First Name:</td>
+						<td>
+							<input type="text" name="firstname"	id="firstname">
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Last Name:</td>
+						<td>
+							<input 
+								type="text" 
+								name="lastname"
+								id="lastname">
+						</td>
+					</tr>
+					
+					<tr>
+						<td>City:</td>
+						<td>
+							<input 
+								type="text" 
+								name="city"
+								id="city">
+						</td>
+					</tr>
+					
+					<tr>
+						<td>State:</td>
+						<td>
+							<input 
+								type="text" 
+								name="state"
+								id="state">
+						</td>
+					</tr>
+					
+					<tr>
+						<td>Comments:</td>
+						<td>
+							<textarea name="textarea" cols="40" rows="5" id="textarea"></textarea>
+						</td>
+					</tr>
+					
+					<tr>
+					    <td></td>
+						<td>
+							<input 
+								type="button" 
+								value="Submit"
+								onclick="submit();"
+								>
+						
+							<input type="reset" value="Clear">
+						</td>
+					</tr>
+				</table>
+				<br/>
+				<div id="result" />
+
+  </body>
+  
+</html>
